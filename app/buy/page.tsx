@@ -1,24 +1,26 @@
-"use client"
-
-import React from "react";
-import { Container, Heading, Text } from "@chakra-ui/react";
-import NFTGrid from "./../../components/NFTGrid";
-import { NFT_COLLECTION_ADDRESS } from "../../const/addresses";
-import { useContract, useNFTs } from "@thirdweb-dev/react";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+import React, { Suspense } from "react";
+import { NFTGridLoading } from "@/components/NFT/NFTGrid";
+import ListingGrid from "@/components/ListingGrid/ListingGrid";
+import { MARKETPLACE, NFT_COLLECTION } from "@/const/contracts";
 
 export default function Buy() {
-    //const { contract } = useContract(NFT_COLLECTION_ADDRESS);
-    //const { data, isLoading } = useNFTs(contract);
+	return (
+		<div className="">
+			<h1 className="text-4xl">Buy NFTs</h1>
 
-    return (
-        <Container maxW={"1200px"} p={5}>
-            <Heading>Buy NFTs</Heading>
-            <Text>Browse and buy NFTs from this collection.</Text>
-            {/* <NFTGrid 
-                isLoading={isLoading} 
-                data={data} 
-                emptyText={"No NFTs found"}
-            /> */}
-        </Container>
-    )
-};
+			<div className="my-8">
+				<Suspense fallback={<NFTGridLoading />}>
+					<ListingGrid
+						marketplace={MARKETPLACE}
+						collection={NFT_COLLECTION}
+						emptyText={
+							"Looks like there are no listed NFTs in this collection. Did you import your contract on the thirdweb dashboard? https://thirdweb.com/dashboard"
+						}
+					/>
+				</Suspense>
+			</div>
+		</div>
+	);
+}
