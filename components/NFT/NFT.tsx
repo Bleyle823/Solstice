@@ -10,11 +10,11 @@ import Skeleton from "@/components/Skeleton";
 import { useRouter } from "next/navigation";
 
 type Props = {
-	tokenId: bigint;
-	nft?: NFT;
-	directListing?: DirectListing;
-	auctionListing?: EnglishAuction;
-	overrideOnclickBehavior?: (nft: NFT) => void;
+  tokenId: bigint;
+  nft?: NFT;
+  directListing?: DirectListing;
+  auctionListing?: EnglishAuction;
+  overrideOnclickBehavior?: (nft: NFT) => void;
 };
 
 export default function NFTComponent({
@@ -50,21 +50,28 @@ export default function NFTComponent({
         overrideOnclickBehavior
           ? () => overrideOnclickBehavior(nft!)
           : () =>
-            router.push(
-              `/token/${
-                NFT_COLLECTION.address
-              }/${tokenId.toString()}`
-            )
+              router.push(
+                `/token/${NFT_COLLECTION.address}/${tokenId.toString()}`
+              )
       }
     >
       <div className="relative w-full h-64 bg-white/[.04]">
-        {nft.metadata.image && (
+        {nft.metadata.image ? (
           <MediaRenderer
             src={nft.metadata.image}
             client={client}
             className="object-cover object-center"
           />
-        )}
+        ) : nft.metadata.model ? (
+          <model-viewer
+            src={nft.metadata.model}
+            alt={nft.metadata.name}
+            camera-controls
+            poster={nft.metadata.poster}
+            ar-status="not-presenting"
+            style={{ width: "100%", height: "100%" }}
+          ></model-viewer>
+        ) : null}
       </div>
       <div className="flex items-center justify-between flex-1 w-full px-3">
         <div className="flex flex-col justify-center py-3">
@@ -72,14 +79,14 @@ export default function NFTComponent({
             {nft.metadata.name}
           </p>
           <p className="text-sm font-semibold text-white/60">
-						#{nft.id.toString()}
+            #{nft.id.toString()}
           </p>
         </div>
 
         {(directListing || auctionListing) && (
           <div className="flex flex-col items-end justify-center">
             <p className="max-w-full mb-1 overflow-hidden font-medium text-ellipsis whitespace-nowrap text-white/60">
-							Price
+              Price
             </p>
             <p className="max-w-full overflow-hidden text-white text-ellipsis whitespace-nowrap">
               {directListing

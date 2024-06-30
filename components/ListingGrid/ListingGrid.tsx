@@ -65,3 +65,4 @@ export default async function ListingGrid(props: Props) {
     </Suspense>
   );
 }
+//<model-viewer src="https://d391b93f5f62d9c15f67142e43841acc.ipfscdn.io/ipfs/bafybeifs3wttnckwbtjpm4pt2dlz7uq3z2l56vidrf3uvuxr5w2rvydjiu/untitled.glb" alt="Chinese Temple " camera-controls="true" poster="ipfs://QmaNsJzEARRrETZ7whyY1Vqrp2Wxs7yKnW1oytzxpvWrgL/Chinese%20Building%20.png" ar-status="not-presenting" style="width: 100%; height: 100%;"></model-viewer>
