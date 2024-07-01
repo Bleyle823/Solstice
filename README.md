@@ -48,12 +48,12 @@ Many game companies actively support modding, recognizing its value in extending
 
 With the eager anticipation of Grand Theft Auto 6, our platform has massive potential to onboard many new users. This will expand our ecosystem and drive the platform's growth and development, making it a pivotal player in the game modding space.
 
-## 📝 Deployed Contracts
+## 📝 Deployed Contracts on Base Sepolia Testnet:
 
 - **Mainnet**: 
-  - Contract Address: `0x1234567890abcdef1234567890abcdef12345678`
-- **Testnet**: 
-  - Contract Address: `0xabcdef1234567890abcdef1234567890abcdef12`
+  - Collection Address: `0x5d16f1C43761C8B1217AF7Cb420426df5cb14Ffe`
+-  **Base Sepolia Testnet**:
+  - Marketplace Address: `0xc6B662d8C4cE5B10F2AE4b8AdD3a188C06188696`
 
 ## 🛠️ Getting Started
 
@@ -62,7 +62,15 @@ To get started with our platform, follow these steps:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/your-repo/decentralized-mods-platform.git
+   
+  ## Install Dependencies:
+```bash
+cd decentralized-mods-platform
+npm install
 ## Deploy on Vercel
+
+npm start
+
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
